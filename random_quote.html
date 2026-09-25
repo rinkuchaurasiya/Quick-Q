@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generator</title>
+    <style>
+        body{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background 1s ease;
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 20px;
+            color: white;
+        }
+        #quoteBox {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 500px;
+
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+
+        }
+    </style>
+</head>
+
+<body>
+    
+    <div id = "quoteBox">
+        <h2 id = "quote">Click The Button to get inspired ! </h2>
+        <button id = "newQuote">New Quote </button>
+    </div>
+    <script>
+        const quotes = ["Believe you can and you're halfway there.",
+        "Don't watch the clock do what it does. keep going.",
+        "The only way to do great work is to love what you do.",
+        "Success is not final, failure is not fatal: It is the courage to continue that counts.",
+        "You are stronger than you think."
+
+        ];
+        const gradients = [ 
+            "linear-gradient(to right, #00c6ff, #0072ff)",
+            "linear-gradient(to bottom, #ff9966, #ff5e62)",
+            "linear-gradient(to top right, #7f00ff, #e100ff)",
+            "linear-gradient(to top left, #11998e, #38ef7d)",
+            "linear-gradient(to right, #fc4a1a, #f7b733)"
+
+        ];
+        const quoteText = document.getElementById("quote");
+        const newQuoteBtn = document.getElementById("newQuote");
+        function generateQuote(){
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            const randomGradient = Math.floor(Math.random() *gradients.length);
+            
+            quoteText.textContent = quotes[randomIndex];
+            document.body.style.background = gradients[randomGradient];
+
+
+        }
+newQuoteBtn.addEventListener("click", generateQuote);
+
+
+    </script>
+</body>
+
+</html>
